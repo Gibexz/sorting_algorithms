@@ -11,7 +11,6 @@ void bubble_sort(int *array, size_t size)
 {
     size_t i, j;
 
-    print_array(array, size);
     for (i = 0; i < size - 1; i++)
         /*Last i elements are already in place*/
         for (j = 0; j < size - i - 1; j++)
