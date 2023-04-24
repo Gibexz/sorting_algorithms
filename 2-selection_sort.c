@@ -11,17 +11,24 @@ void swap(int *arr1, int *arr2);
  */
 void selection_sort(int *array, size_t size)
 {
-    size_t i, j, mini_idx;
 
-    /* loop for sorting boundary movement */
-    for (i = 0; i < size - 1; i++)
-        /* To find the minimum value in the array*/
-        for (j = 0; j < size - i - 1; j++)
-            if (array[j] > array[j + 1])
-	    {
-                swap(&array[j], &array[j + 1]);
-		print_array(array, size);
-	    }
+    	size_t i, j, mini_idx;
+
+    	/* loop for sorting boundary movement */
+   	for (i = 0; i < size - 1; i++)
+    	{
+
+        	/* To find the minimum value in the array*/
+		mini_idx = i;
+        	for (j = i + 1; j < size; j++)
+		{
+           		if (array[j] > array[j + 1])
+	    		{
+				swap(&array[j], &array[j + 1]);
+				print_array(array, size);
+	    		}
+		}
+    }
 }
 
 /**
