@@ -1,11 +1,13 @@
 #include "sort.h"
 
-void swap(int* xp, int* yp);
+void swap(int *arr1, int *arr2);
+
 /**
+ * bubble_sort - bubble sort algorithm for an array
+ * @array: array pointer
+ * @size: array size
  *
- *
- *
- *
+ * Return: Nothing
  */
 void bubble_sort(int *array, size_t size)
 {
@@ -22,10 +24,11 @@ void bubble_sort(int *array, size_t size)
 }
 
 /**
- *
- *
- *
- *
+ * swap - function to swap two values in an array
+ * @arr1: higher value
+ * @arr2: lower value
+ * 
+ * Return: Nothing
  */
 void swap(int *arr1, int *arr2)
 {
