@@ -11,25 +11,25 @@ void swap(int *arr1, int *arr2);
  */
 void bubble_sort(int *array, size_t size)
 {
-    size_t i, j;
+	size_t i, j;
 
-    if (array == NULL)
-	    return;
-    if (size < 2)
-	    return;
+	if (array == NULL)
+		return;
+	if (size < 2)
+		return;
 
-    for (i = 0; i < size - 1; i++)
-    {
-        /*Last i elements are already in place*/
-        for (j = 0; j < size - i - 1; j++)
+	for (i = 0; i < size - 1; i++)
 	{
-            if (array[j] > array[j + 1])
-	    {
-                swap(&array[j], &array[j + 1]);
-		print_array(array, size);
-	    }
-	}
-    }
+		/*Last i elements are already in place*/
+		for (j = 0; j < size - i - 1; j++)
+		{
+        		if (array[j] > array[j + 1])
+	    		{
+        			swap(&array[j], &array[j + 1]);
+				print_array(array, size);
+	    		}
+		}
+    	}
 }
 
 /**
@@ -41,7 +41,7 @@ void bubble_sort(int *array, size_t size)
  */
 void swap(int *arr1, int *arr2)
 {
-    int temp = *arr1;
-    *arr1 = *arr2;
-    *arr2 = temp;
+	int temp = *arr1;
+	*arr1 = *arr2;
+	*arr2 = temp;
 }
