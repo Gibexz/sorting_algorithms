@@ -12,7 +12,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp, *prevos, *current;
 
-	if ( list == NULL || *list == NULL || !(*list)->next)
+	if (list == NULL || *list == NULL || !(*list)->next)
 		return;
 
 	current = (*list)->next;
@@ -37,7 +37,7 @@ void insertion_sort_list(listint_t **list)
  * swapList - swap to doubly linked list elements
  * @px: i.e previous element
  * @cx: i.e current element
- *
+ * @list: the doubly linked list
  * Return: pointer to swapped element (of higher value).
  */
 listint_t *swapList(listint_t *px, listint_t *cx, listint_t **list)
