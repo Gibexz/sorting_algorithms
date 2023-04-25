@@ -1,7 +1,8 @@
 #include "sort.h"
 
 void swap(int *arr1, int *arr2);
-int partition(int *array, int low, int high);
+int partition(int *array, int low, int high, size_t size);
+void recursion(int *array, int low, int  high, size_t size);
 
 
 /**
@@ -12,19 +13,29 @@ int partition(int *array, int low, int high);
  */
 void quick_sort(int *array, size_t size)
 {
-	int low, high;
+	if (!array || size < 2)
+		return;
 
-	low = 0;
-	high = int(size) - 1;
+	recursion(array, 0, (int)size - 1, size);
+}
 
+/**
+ *
+ *
+ *
+ */
+void recursion(int *array, int low, int  high, size_t size)
+{
+	int part;
+	
 	if (low < high)
 	{
 		/* To get the patition index or pivot */
-		part = partition(array, low, high);
+		part = partition(array, low, high, size);
 
 		/* recursive call to sort array elements before and afte the partition  */
-		quick_sort(array, low, part - 1);
-		quick_sort(array, part + 1, high);
+		recursion(array, low, part - 1, size);
+		recursion(array, part + 1, high, size);
 	}
 }
 
@@ -36,14 +47,14 @@ void quick_sort(int *array, size_t size)
  *
  * Return: partition index
  */
-int partition(int *array, int low, int high)
+int partition(int *array, int low, int high, size_t size)
 {
 	/* choosing a pivot */
 	int pivot = array[high];
 	int j;
 	int i = low - 1;/* index of smaller element*/
 
-	for (j = 0, j <= high - 1, j++)
+	for (j = low; j <= high - 1; j++)
 	{
 		/* If current array element is smaller than the pivot */
 		if (array[j] < pivot)
@@ -54,7 +65,7 @@ int partition(int *array, int low, int high)
 			print_array(array, size);
 		}
 	}
-	swap(&array[i + 1], array[high]);
+	swap(&array[i + 1], &array[high]);
 	print_array(array, size);
 	return (i + 1);
 }
