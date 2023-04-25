@@ -29,14 +29,14 @@ void bubble_sort(int *array, size_t size)
 				print_array(array, size);
 			}
 		}
-    	}
+	}
 }
 
 /**
  * swap - function to swap two values in an array
  * @arr1: higher value
  * @arr2: lower value
- * 
+ *
  * Return: Nothing
  */
 void swap(int *arr1, int *arr2)
