@@ -13,7 +13,9 @@ void recursion(int *array, int low, int  high, size_t size);
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size < 2)
+	if (array == NULL)
+		return;
+	if (size < 2)
 		return;
 
 	recursion(array, 0, (int)size - 1, size);
