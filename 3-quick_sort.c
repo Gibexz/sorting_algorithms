@@ -52,26 +52,15 @@ void recursion(int *array, int low, int  high, size_t size)
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot, start, end;
+	int pivot = array[high];                                                                int j;                                                                                  int i = low - 1;
 
-	pivot = array[low];
-	start = low;
-	end = high;
-
-	while (start < end)
-	{
-		while (array[start] <= pivot)
-			start++;
-		while (array[end] > pivot)
-			end--;
-		if (start < end)
-		{
-			swap(&array[start], &array[end], array, size);
-		}
-	}
-	swap(&array[low], &array[end], array, size);
-
-	return (end);
+        for (j = low; j <= high - 1; j++)                                                       {
+                if (array[j] < pivot)
+                {
+                        i++;
+                        swap(&array[i], &array[j], array, size);
+                }                                                                               }                                                                                       swap(&array[i + 1], &array[high], array, size);
+        return (i + 1);
 }
 
 /**
