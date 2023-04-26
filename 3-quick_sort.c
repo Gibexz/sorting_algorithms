@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void swap(int *arr1, int *arr2);
+void swap(int *arr1, int *arr2, int *array, size_t size);
 int partition(int *array, int low, int high, size_t size);
 void recursion(int *array, int low, int  high, size_t size);
 
@@ -8,7 +8,7 @@ void recursion(int *array, int low, int  high, size_t size);
 /**
  * quick_sort - quick sort algorithm for an array.
  * @array: the array to sort.
- * @size: sizeof the array
+ * @size: size of the array
  *
  */
 void quick_sort(int *array, size_t size)
@@ -20,9 +20,11 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- *
- *
- *
+ * recursion - recuraive part of the quick sort algorithm
+ * @array: the array to sort.
+ * @low: lowest index
+ * @high: highest index
+ * @size: size of the array
  */
 void recursion(int *array, int low, int  high, size_t size)
 {
@@ -49,24 +51,44 @@ void recursion(int *array, int low, int  high, size_t size)
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	/* choosing a pivot */
+	/* choosing a pivot 
 	int pivot = array[high];
 	int j;
-	int i = low - 1;/* index of smaller element*/
+	int i = low - 1; index of smaller element 
 
 	for (j = low; j <= high - 1; j++)
 	{
-		/* If current array element is smaller than the pivot */
+		  If current array element is smaller than the pivot 
 		if (array[j] < pivot)
 		{
-			/*increament smaller element index and swap*/
+			increament smaller element index and swap
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			swap(&array[i], &array[j], array, size);
 		}
 	}
-	swap(&array[i + 1], &array[high]);
-	return (i + 1);
+	swap(&array[i + 1], &array[high], array, size);
+	return (i + 1); */
+
+	int pivot, start, end;
+
+	pivot = array[low];
+	start = low;
+	end = high;
+
+	while (start < end)
+	{
+		while (array[start] <= pivot)
+			start++;
+		while (array[end] > pivot)
+			end--;
+		if (start < end)
+		{
+			swap(&array[start], &array[end], array, size);
+		}
+	}
+	swap(&array[low], &array[end], array, size);
+
+	return (end);
 }
 
 /**
@@ -76,9 +98,10 @@ int partition(int *array, int low, int high, size_t size)
  *
  * Return: Nothing
  */
-void swap(int *arr1, int *arr2)
+void swap(int *arr1, int *arr2, int *array, size_t size)
 {
 	int temp = *arr1;
 	*arr1 = *arr2;
 	*arr2 = temp;
+	print_array(array, size);
 }
