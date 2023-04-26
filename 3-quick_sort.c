@@ -29,7 +29,7 @@ void quick_sort(int *array, size_t size)
 void recursion(int *array, int low, int  high, size_t size)
 {
 	int part;
-	
+
 	if (low < high)
 	{
 		/* To get the patition index or pivot */
@@ -46,29 +46,12 @@ void recursion(int *array, int low, int  high, size_t size)
  * @array: the array to sort
  * @low: index of smaller elements
  * @high: pivot index
+ * @size: size of the array
  *
  * Return: partition index
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	/* choosing a pivot 
-	int pivot = array[high];
-	int j;
-	int i = low - 1; index of smaller element 
-
-	for (j = low; j <= high - 1; j++)
-	{
-		  If current array element is smaller than the pivot 
-		if (array[j] < pivot)
-		{
-			increament smaller element index and swap
-			i++;
-			swap(&array[i], &array[j], array, size);
-		}
-	}
-	swap(&array[i + 1], &array[high], array, size);
-	return (i + 1); */
-
 	int pivot, start, end;
 
 	pivot = array[low];
@@ -95,6 +78,8 @@ int partition(int *array, int low, int high, size_t size)
  * swap - function to swap two values in an array
  * @arr1: higher value
  * @arr2: lower value
+ * @size: size of the array
+ * @array: the array to sort
  *
  * Return: Nothing
  */
