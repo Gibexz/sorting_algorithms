@@ -20,9 +20,9 @@ void swapNodes(listint_t **head, listint_t *nodeA, listint_t *nodeB)
 	nodeA->prev = nodeB;
 	nodeA->next = next;
 	nodeB->prev = prev;
-	nodeB->next = node1;
+	nodeB->next = nodeA;
 	if (next)
-		next->prev = node1;
+		next->prev = nodeA;
 }
 /**
  * cocktail_sort_list - sorts a list using the cocktail-sort algorithm
